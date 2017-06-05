@@ -8,8 +8,8 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -42,10 +42,23 @@
       }
       .right {
         background-color: #cdecff;
-        text-align: center;
         font-size: 24px;
         padding: 12px;
         margin-left: 6px;
+      }
+      .todoListMain .main button {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+        background-color: #0066FF;
+        color: #FFF;
+        border: 2px solid #0066FF;
+      }
+       
+      .todoListMain .main button:hover {
+        background-color: #003399;
+        border: 2px solid #003399;
+        cursor: pointer;
       }
 
 
@@ -53,15 +66,18 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    
+
   </head>
 
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
 
-    <div class="container">
+    <div id="app-container"></div>
+
+    <!-- <div class="container">
       <div class="row">
         <div id="container" class="col-lg-12 header"> The Header</div>
       </div>
@@ -70,16 +86,7 @@
         <div id="container" class="col-lg-4 right"> right</div>
       </div>
 
-      <!-- <div class="row">
-        <div class="col-lg-8 header"> Header </div>
-      </div> -->
-
-    </div>  
-
-    <script src="https://fb.me/react-15.1.0.js"></script>
-    <script src="https://fb.me/react-dom-15.1.0.js"></script>
-    <script src="https://unpkg.com/axios@0.14.0/dist/axios.min.js"></script>
-    <script type="../src/App.js"></script>
+    </div>  --> 
 
     <!--
       This HTML file is a template.
@@ -91,5 +98,106 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/babel" src="../src/App.js"></script>
+      
+      <!-- var destination = document.querySelector("#app-container");
+
+      var TodoItems = React.createClass({
+        render: function() {
+          var todoEntries = this.props.entries;
+
+          function createTasks(item) {
+            return (
+              <li key={item.key}>{item.text}</li>
+            );
+          }
+ 
+          var listItems = todoEntries.map(createTasks);
+
+          return (
+            <div>
+              <span>To Do List </span>
+              <span> ({listItems.length})</span>
+              <ul className="theList">
+                {listItems}
+              </ul>
+            </div>
+          );
+        }
+      });
+
+      var TodoList = React.createClass({
+        
+        getInitialState: function() {
+          return {
+            items: []
+          };
+        },
+
+        
+        addItem: function(e) {
+          var itemArray = this.state.items;
+
+          itemArray.push(
+            {
+              text: this._inputElement.value,
+              key: Date.now()
+            }
+          );
+           
+          this.setState({
+            items: itemArray
+          });
+           
+          this._inputElement.value = "";
+          e.preventDefault();
+
+        },
+
+        
+        render: function() {
+            return (
+              <div className="todoListMain">
+                <div className="row">
+                  <div id="container" className="col-lg-10 col-lg-offset-1 header"> Welcome to my To Do List React App</div>
+                </div>
+                <div className="row main">
+                  <div id="container" className="col-lg-4 col-lg-offset-2 left"> 
+                    <form onSubmit={this.addItem}>
+                      <input ref={(a) => this._inputElement = a} placeholder="">
+                      </input>
+                      <button type="submit">add</button>
+                    </form>
+                  </div>
+                  <div id="container" className="col-lg-4 right"> 
+                    <TodoItems entries={this.state.items}/>
+                  </div>   
+                </div>
+              </div>
+              
+            );
+          }
+      });
+      
+      
+      ReactDOM.render(
+        <div>
+          <TodoList/>
+        </div>,
+        destination
+      );
+
+    </script> -->
+
   </body>
 </html>
+
+<!-- <div className="todoListMain">
+                <div className="header">
+                  <form>
+                    <input placeholder="enter task">
+                    </input>
+                    <button type="submit">add</button>
+                  </form>
+                </div>
+              </div> -->
