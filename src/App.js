@@ -57,7 +57,7 @@ var TodoList = React.createClass({
       return (
         <div className="todoListMain">
           <div className="row">
-            <div id="container" className="col-lg-10 col-lg-offset-1 header"> Welcome to my To Do List React App</div>
+            <div id="container" className="col-lg-10 col-lg-offset-2 header"> Welcome to my To Do List React App</div>
           </div>
           <div className="row main">
             <div id="container" className="col-lg-4 col-lg-offset-2 left"> 
